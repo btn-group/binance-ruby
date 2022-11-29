@@ -1,7 +1,11 @@
+# Need to be able to provide a proxy for ip purposes
+
 module Binance
   module Api
     class Request
       include HTTParty
+      http_proxy 'us-east-static-09.quotaguard.com', 9293, ENV['QUOTAGUARD_USER'], ENV['QUOTAGUARD_PASSWORD']
+
       class << self
         def send!(api_key_type: :none, headers: {}, method: :get, path: "/", params: {}, security_type: :none, tld: Configuration.tld, api_key: nil, api_secret_key: nil)
           Configuration.validate_tld!(tld)
