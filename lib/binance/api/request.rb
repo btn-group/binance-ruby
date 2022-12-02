@@ -4,8 +4,7 @@ module Binance
   module Api
     class Request
       include HTTParty
-      # Something is going wrong here...
-      http_proxy URI(ENV["QUOTAGUARDSHIELD_URL"]).host, URI(ENV["QUOTAGUARDSHIELD_URL"]).port, URI(ENV["QUOTAGUARDSHIELD_URL"]).user, URI(ENV["QUOTAGUARDSHIELD_URL"]).password
+      http_proxy URI(ENV["QUOTAGUARDSTATIC_URL"]).host, URI(ENV["QUOTAGUARDSTATIC_URL"]).port, URI(ENV["QUOTAGUARDSTATIC_URL"]).user, URI(ENV["QUOTAGUARDSTATIC_URL"]).password
 
       class << self
         def send!(api_key_type: :none, headers: {}, method: :get, path: "/", params: {}, security_type: :none, tld: Configuration.tld, api_key: nil, api_secret_key: nil)
